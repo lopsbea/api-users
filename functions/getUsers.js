@@ -10,6 +10,11 @@ function getAllUsers(_req, res) {
       })
     )
   );
+  user.sort((a, b) => {
+    if (a.filename > b.filename) return -1;
+    else if (a.filename < b.filename) return 1;
+    else return 0;
+  });
   res.send(user);
 }
 
